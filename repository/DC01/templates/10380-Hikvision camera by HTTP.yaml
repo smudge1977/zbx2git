@@ -1,6 +1,6 @@
 zabbix_export:
   version: '6.0'
-  date: '2024-08-25T12:32:25Z'
+  date: '2024-08-25T12:38:10Z'
   groups:
     - uuid: d37f71c7e3f7469bab645852a69a2018
       name: 'Templates/Video surveillance'
