@@ -1,0 +1,17 @@
+zabbix_export:
+  version: '6.0'
+  date: '2024-08-25T12:32:32Z'
+  groups:
+    - uuid: dc579cd7a1a34222933f24f52a68bcd8
+      name: 'Linux servers'
+  templates:
+    - uuid: dbd7ada88aaa4c879dd187e2c430d57d
+      template: km-service1
+      name: km-service1
+      description: 'Check service km is running'
+      groups:
+        - name: 'Linux servers'
+      items:
+        - uuid: a44befd2fd5646c48906aeb638905ab9
+          name: nginx-running
+          key: 'proc.num[,,,nginx]'
