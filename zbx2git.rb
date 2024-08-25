@@ -62,7 +62,7 @@ def exportConfig(logger, inst, zbx, cfg)
         json["zabbix_export"]["date"] = ""
         json_pretty = JSON.pretty_generate(json)
 
-        FileUtils.mkdir_p(path) unless File.exists?(path)
+        FileUtils.mkdir_p(path) unless File.exist?(path)
         File.open("#{path}/#{file}","w"){|f| f.puts json_pretty}
       rescue Exception => e
         logger.error "Exporting: #{cfg[:type]} (#{inst}) : #{e.message}"
@@ -71,7 +71,7 @@ def exportConfig(logger, inst, zbx, cfg)
     end
 
     begin
-      if !File.exists?("#{path}/.git")
+      if !File.exist?("#{path}/.git")
         g = Git.init(path, :log => logger)
         g.add(:all=>true)
         m = g.commit_all('initial')
@@ -102,7 +102,7 @@ end
 
 
 
-FileUtils.mkdir_p("#{PATH_CURRENT}/logs") unless File.exists?("#{PATH_CURRENT}/logs")
+FileUtils.mkdir_p("#{PATH_CURRENT}/logs") unless File.exist?("#{PATH_CURRENT}/logs")
 log = Logger.new("#{PATH_CURRENT}/logs/zbx2git.log", 'monthly')
 log.level = Logger::INFO
 
